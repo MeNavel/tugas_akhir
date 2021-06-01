@@ -16,14 +16,11 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-8 offset-md-2">
                 <div class="card">
-                    <div class="card-header">
-                        Image Upload
-                    </div>
                     <div class="card-body">
                         <form action="{{  route('upload_file')  }}" method="post" enctype="multipart/form-data">
-                        
+                        @csrf
                         <div class="form-group">
                             <input type="file" class="form-control" name="file" id="file">
                         </div>
