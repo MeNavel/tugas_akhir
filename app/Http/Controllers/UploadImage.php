@@ -16,8 +16,8 @@ class UploadImage extends Controller
         
         $file = $request->file('file');
         $file_name = $file->getClientOriginalName();
-        $request->file->storeAs('python/test',$file_name);
-        $file_predict = "/Applications/XAMPP/xamppfiles/htdocs/website/storage/app/python/test/".$file->getClientOriginalName();
+        $request->file->storeAs('public',$file_name);
+        $file_predict = "/Applications/XAMPP/xamppfiles/htdocs/website/storage/app/public/".$file->getClientOriginalName();
         // $file_predict = "/Applications/XAMPP/xamppfiles/htdocs/website/storage/app/python/test/mask_firsa.png";
         $path_python = "/Applications/XAMPP/xamppfiles/htdocs/website/storage/app/python/env/bin/python3";
 
@@ -35,6 +35,9 @@ class UploadImage extends Controller
             $predict_face = shell_exec($command);
             echo ($predict_face);
             echo  "TIDAK menggunakan Masker";
+        }
+        if($predict_mask == "mask\n"){
+            echo "Menggunakan Masker";
         }
         
         // set_time_limit(1000);

@@ -14,5 +14,9 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
+        $file_predict = "/Applications/XAMPP/xamppfiles/htdocs/website/storage/app/python/test/mask_firsa.png";
+
+        $data = 'Firsa';
+        return view('result', ['data' => $data, 'foto' => $file_predict]);
     }
 }
