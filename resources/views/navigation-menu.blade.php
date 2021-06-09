@@ -19,13 +19,19 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                        {{ __('Home') }}
+                        {{ __('Halam untuk cek fungsi') }}
                     </x-jet-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('upload') }}" :active="request()->routeIs('upload')">
                         {{ __('Upload Image') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('dataset') }}" :active="request()->routeIs('dataset')">
+                        {{ __('Dataset') }}
                     </x-jet-nav-link>
                 </div>
             </div>

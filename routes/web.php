@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UploadImage;
+use App\Http\Controllers\DatasetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/upload', [UploadImage::cl
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/upload', [UploadImage::class,'uploadFile'])
 ->name('upload_file');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dataset', [DatasetController::class,'view'])
+->name('dataset');

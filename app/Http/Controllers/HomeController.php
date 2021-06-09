@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -12,11 +13,15 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke()
     {
-        $file_predict = "/Applications/XAMPP/xamppfiles/htdocs/website/storage/app/python/test/mask_firsa.png";
-
-        $data = 'Firsa';
-        return view('result', ['data' => $data, 'foto' => $file_predict]);
+        date_default_timezone_set('Asia/Jakarta');
+        $tgl=date("d/m/Y h:i:s");
+        echo $tgl;
+        // $name="firsa\n";
+        // $name2 = substr($name, 0, -1);
+        // echo $name2;
+        // $identity = DB::table('dataset')->where('kode', 'LIKE', "%".$name2."%")->first();
+        // return view('new', ['id' => $identity]);
     }
 }

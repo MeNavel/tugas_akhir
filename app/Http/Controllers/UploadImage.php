@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class UploadImage extends Controller
 {
@@ -13,7 +15,8 @@ class UploadImage extends Controller
 
     public function uploadFile(Request $request)
     {
-        
+        date_default_timezone_set('Asia/Jakarta');
+        $tgl=date("d/m/Y h:i:s");
         $file = $request->file('file');
         $file_name = $file->getClientOriginalName();
         $request->file->storeAs('public',$file_name);
@@ -33,13 +36,19 @@ class UploadImage extends Controller
         if($predict_mask == "no_mask\n"){
             $command = escapeshellcmd("$path_python $path_progam_face $file_predict $path_model_face");
             $predict_face = shell_exec($command);
-            echo ($predict_face);
-            echo  "TIDAK menggunakan Masker";
+            // echo ($predict_face);
+            // echo  "TIDAK menggunakan Masker";
+            $result = "TIDAK menggunakan Masker";
+            $predict_face2 = substr($predict_face, 0, -1);
+            $indentity = DB::table('dataset')->where('kode', 'like', "%".$predict_face2."%")->first();
+            return view('result', ['id' => $indentity ,'tgl' => $tgl ,'foto' => $file_name ,'data' => $result]);
+
         }
         if($predict_mask == "mask\n"){
-            echo "Menggunakan Masker";
+            // echo "Menggunakan Masker";
+            $result = "Menggunakan Masker";
+            $predict_face = "Orang Tersebut";
         }
-        
         // set_time_limit(1000);
         // echo ($predict_mask);
     }
