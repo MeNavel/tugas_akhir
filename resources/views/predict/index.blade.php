@@ -4,7 +4,7 @@
     <div class="row mt-5 mb-5">
         <div class="col-lg-12 margin-tb">
             <div class="float-left">
-                <h2>Index</h2>
+                <h2>Daftar Pelanggar Penggunaan Masker</h2>
             </div>
             <div class="float-right">
                 <a class="btn btn-success" href="{{ route('predict.create') }}"> Create predict</a>
