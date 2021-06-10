@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UploadImage;
 use App\Http\Controllers\DatasetController;
+use App\Http\Controllers\PredictController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,5 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/upload', [UploadImage::c
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dataset', [DatasetController::class,'view'])
 ->name('dataset');
+
+Route::middleware(['auth:sanctum', 'verified'])->resource('predict', PredictController::class);
