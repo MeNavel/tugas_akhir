@@ -50,9 +50,9 @@ class PredictController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Predict $predict)
     {
-        return view('predict.show', compact('id'));
+        return view('predict.show', compact('predict'));
     }
 
     /**
@@ -86,7 +86,9 @@ class PredictController extends Controller
      */
     public function destroy($id)
     {
+        $id=Predict::find($id);
         $id->delete();
         return redirect()->route('predict.index')->with('success', 'Data Prediksi Berhasil Dihapus');
+        // return back()->with('success',' Penghapusan berhasil.');
     }
 }

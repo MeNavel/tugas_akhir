@@ -34,7 +34,7 @@
             <td>{{ $predict->nama }}</td>
             <td>{{ $predict->status }}</td>
             <td class="text-center">
-                <form action="{{ route('predict.destroy',$predict->id) }}" method="predict">
+                <form action="{{ route('predict.destroy',$predict->id) }}" method="POST">
  
                     <a class="btn btn-info btn-sm" href="{{ route('predict.show',$predict->id) }}">Show</a>
  
