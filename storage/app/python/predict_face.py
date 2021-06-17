@@ -11,6 +11,7 @@ import cv2
 import time
 import operator
 import warnings
+import face_recognition
 warnings.filterwarnings("ignore")
 
 DIM=224
@@ -45,9 +46,14 @@ def prediksiImg(nmFile,model):
     t = time.time()
     img = cv2.imread(nmFile)
     if img is None:
-        return t,"REJECTED, not valid file , cant be predict"
-    
-    img = cv2.resize(img, IMG_DIM)
+        return "REJECTED, not valid file , cant be predict"
+    face_bounding_boxes = face_recognition.face_locations(img)
+    if len(face_bounding_boxes) != 1:
+        return "Wajah Tidak Terdeteksi"
+    for face_location in face_bounding_boxes:
+        top, right, bottom, left = face_location
+        face_image = img[top:bottom, left:right]
+    img = cv2.resize(face_image, IMG_DIM)
     img=img/255
     img=img.reshape(1,img.shape[0],img.shape[1],img.shape[2])
     ModelmobileNet = createMobileNet()
