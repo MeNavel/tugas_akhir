@@ -16,14 +16,32 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nama:</strong>
-                {{ $predict->nama }}
+                {{ $result->nama }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Status:</strong>
-                {{ $predict->status }}
+                <strong>Email:</strong>
+                {{ $result->email }}
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>No Hp:</strong>
+                {{ $result->hp }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Alamat:</strong>
+                {{ $result->alamat }}
+            </div>
+        </div>
+        {{-- <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Status:</strong>
+                {{ $result->status }}
+            </div>
+        </div> --}}
     </div>
 @endsection

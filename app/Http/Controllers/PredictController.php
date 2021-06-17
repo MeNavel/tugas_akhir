@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Predict;
+use Illuminate\Support\Facades\DB;
 
 class PredictController extends Controller
 {
@@ -53,7 +54,13 @@ class PredictController extends Controller
      */
     public function show(Predict $predict)
     {
-        return view('predict.show', compact('predict'));
+        // echo $predict;
+        $find = $predict->kode;
+        $result = DB::table('dataset')->where('kode', $find)->first();
+        // $result = DB::table('dataset')->where('kode', 'like', "%".$find."%")->first();
+        // echo $result->nama;
+        // echo($result->nama);
+        return view('predict.show', compact('result'));
     }
 
     /**

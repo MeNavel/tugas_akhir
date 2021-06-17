@@ -42,12 +42,12 @@ class UploadImage extends Controller
             $predict_face2 = substr($predict_face, 0, -1);
             // echo $predict_face2;
             $indentity = DB::table('dataset')->where('kode', 'like', "%".$predict_face2."%")->first();
-            // DB::table('predicts')->insert([
-            //     'nama' => $indentity->nama,
-            //     'status' => $result,
-            //     'created_at' => $tgl,
-            //     'kode' => $predict_face2
-            // ]);
+            DB::table('predicts')->insert([
+                'nama' => $indentity->nama,
+                'status' => $result,
+                'created_at' => $tgl,
+                'kode' => $predict_face2
+            ]);
             return view('result', ['id' => $indentity ,'tgl' => $tgl ,'foto' => $file_name ,'data' => $result]);
 
         }
