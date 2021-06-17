@@ -40,6 +40,7 @@ class PredictController extends Controller
             'nama' => 'required',
             'status' => 'required',
         ]);
+        echo $request;
         Predict::create($request->all());
         return redirect()->route('predict.index')->with('success', 'Data Prediksi Berhasil Dimasukkan');
     }

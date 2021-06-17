@@ -16,7 +16,16 @@ class HomeController extends Controller
     public function __invoke()
     {
         date_default_timezone_set('Asia/Jakarta');
-        $tgl=date("d/m/Y h:i:s");
+        $tgl=date("Y/m/d H:i:s");
+        // $nama = 'Sudrajad Hadi Saputra';
+        // $status = 'Tidak Menggunakan Masker';
+
+        // DB::table('predicts')->insert([
+        //     'nama' => $nama,
+        //     'status' => $status,
+        //     'created_at' => $tgl
+        // ]);
+
         echo $tgl;
         // $name="firsa\n";
         // $name2 = substr($name, 0, -1);
